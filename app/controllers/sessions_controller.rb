@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    #render login form in sessions/new.html.erb
   end
 
   def create
@@ -10,7 +11,7 @@ class SessionsController < ApplicationController
       if BCrypt::Password.new(@user["password"]) == params["password"]
         
         #creates cookie for the user id
-        cookies["user_id"] = @user["id"]
+        session["user_id"] = @user["id"]
 
         flash["notice"] = "Welcome"
         redirect_to "/places"
@@ -25,10 +26,14 @@ class SessionsController < ApplicationController
       redirect_to "/login"
 
     end
-
   end
 
   def destroy
+    #logout the user
+    session["user_id"] = nil
+    flash["notice"] = "Goodbye."
+    redirect_to = /login
   end
+
 end
-  
+

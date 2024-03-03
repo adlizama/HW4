@@ -14,18 +14,20 @@
       <%= flash["notice"] %>
     </div>
     <div>
-    <% @user = User.find_by({"id" => cookies["user_id"]}) %>
-    <!--if no user is logged-in, display signup and login links -->
-    <!--else, if user is logged-in, display user name and logout link -->
-
       <a href="/">Home</a>
-      <a href="/logout">Logout</a>
-      <a href="/login">Login</a>
-      Hey, <%= @user["username"]%>
-      |
+    <% @user = User.find_by({"id" => session["user_id"]}) %>
+    <% if @user == nil%>
+      <!--if no user is logged-in, display signup and login links -->
       <a href="/users/new">Signup</a>
+      |
+      <a href="/login">Login</a>
+      <!--else, if user is logged-in, display user name and logout link -->
+      <%else%>
+      Hey, <%= @user["username"] %>
+      |
+      <a href="/logout">Logout</a>
     </div>
-
+      <%end%>
     <%= yield %>
   </body>
 </html>

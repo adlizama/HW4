@@ -8,6 +8,10 @@ class SessionsController < ApplicationController
     if @user != nil
       
       if BCrypt::Password.new(@user["password"]) == params["password"]
+        
+        #creates cookie for the user id
+        cookies["user_id"] = @user["id"]
+
         flash["notice"] = "Welcome"
         redirect_to "/places"
       else

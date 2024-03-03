@@ -3,7 +3,6 @@
 <% @user = User.find_by({"id" => session["user_id"]}) %>
 
 
-
 <h2>My Entries</h2>
 <% for entry in @entries %>
   <h3><%= entry["title"] %></h3>

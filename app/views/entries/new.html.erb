@@ -3,20 +3,20 @@
 <form action="/entries" method="post">
   <input type="hidden" name="place_id" value="<%= params["place_id"] %>">
 
-  <p>
+  <div class="mb-3">
     <label for="title_input" class = "form-label">Title</label>
     <input type="text" name="title" id="title_input" class = "form-control">
-  </p>
+  </div>
 
-  <p>
+  <div class="mb-3">
     <label for="description_input" class = "form-label">Description</label>
     <input type="text" name="description" id="description_input" class = "form-control">
-  </p>
+  </div>
 
-  <p>
+  <div class="mb-3">
     <label for="occurred_on_input" class = "form-label">Occurred On</label>
     <input type="date" name="occurred_on" id="occurred_on_input" class = "form-control">
-  </p>
+  </div>
 
   <button class = "btn btn-success">Save</button>
 </form>

@@ -15,4 +15,5 @@ class EntriesController < ApplicationController
     redirect_to "/places/#{@entry["place_id"]}"
   end
 
+
 end

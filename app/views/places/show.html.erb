@@ -15,11 +15,6 @@
         <img src="<%= entry["image"] %>" class="img-fluid">
       <%end%>
 
-      <% if entry.uploaded_image.attached? %>
-        <img src="<%= url_for(entry.uploaded_image) %>" class="img-fluid">
-      <% else %>
-        <img src="<%= entry["image"] %>" class="img-fluid">
-      <% end %>
 
       <p><%= entry["description"] %></p>
     </div>  
